@@ -24,39 +24,44 @@ Ce projet de Master 2 vise à reproduire, implémenter et évaluer le modèle de
 
 CCP-Net combine trois architectures de Deep Learning complémentaires :
 Modules clés :
--** Multi-Head Self-Attention**: Capture les dépendances globales dont il comprend les relations complexes entre variables.
--** BiLSTM**: Modélise les dépendances temporelles dont il analyse le passé et le futur simultanément.
--** CNN**: Extrait les caractéristiques locales	Identifie les patterns importants à court terme
+- **Multi-Head Self-Attention**: Capture les dépendances globales dont il comprend les relations complexes entre variables.
+- **BiLSTM**: Modélise les dépendances temporelles dont il analyse le passé et le futur simultanément.
+- **CNN**: Extrait les caractéristiques locales	Identifie les patterns importants à court terme
 
 ## 📊 Résultats Obtenus
-Performances du modèle CCP-Net
-Dataset	Accuracy	Precision	Recall	F1-Score
-📱 Telecom	80.54%	62.21%	86.74%	71.94%
-🏦 Bank	78.44%	48.94%	72.12%	57.88%
-🛡️ Insurance	87.31%	47.34%	66.22%	55.02%
-📰 News	68.83%	46.18%	44.16%	37.13%
+### Performances du modèle CCP-Net
+| Dataset | Accuracy | Precision | Recall | F1-Score |
+|---------|----------|-----------|--------|----------|
+|📱 Telecom | 80.54% | 62.21% | 86.74% | 71.94% | 
+|🏦 Bank | 78.44% | 48.94% | 72.12% | 57.88% |
+|🛡️ Insurance | 87.31% | 47.34%	66.22% | 55.02% |
+|📰 News | 68.83% | 46.18% | 44.16% | 37.13% |
 
-#### 📌 Points clés :
+### 📌 Points clés :
 
 ✅ Meilleur Recall : Telecom (86.74%) — excellent pour détecter les clients à risque
+
 ✅ Meilleure Accuracy : Insurance (87.31%) — modèle très précis
+
 ⚠️ Performance plus faible : News (F1 = 37.13%) — données plus complexes
+
 🎯 Écart type faible : Indique une bonne stabilité du modèle
 
-## 🔬 Étude d'Ablation
+### 🔬 Étude d'Ablation
 
 L'étude d'ablation sur le dataset Telecom révèle la contribution de chaque module :
 
-Configuration	Accuracy	F1-Score
-Attention seul	84.77%	72.77%
-BiLSTM seul	85.43%	74.00%
-CNN seul	84.43%	71.31%
-Attention + BiLSTM	85.40%	73.69%
-Attention + CNN	84.40%	71.78%
-BiLSTM + CNN	85.93%	73.45%
-CCP-Net complet ★	85.20%	72.18%
+| Configuration | Accuracy | F1-Score |
+|---------------|----------|----------|
+| Attention seul|84.77%	|72.77% |
+| BiLSTM seul	|85.43%	|74.00% |
+| CNN seul	|84.43% |71.31% |
+| Attention + BiLSTM	|85.40%	|73.69% |
+| Attention + CNN	|84.40%|71.78% |
+| BiLSTM + CNN	|85.93%	|73.45% |
+| CCP-Net complet |★	85.20% |72.18% |
 
-### 🔑 Conclusions de l'ablation :
+#### 🔑 Conclusions de l'ablation :
 
 - Le BiLSTM est le module le plus performant individuellement (F1: 74.00%)
 - La combinaison BiLSTM + CNN donne la meilleure Accuracy (85.93%)
@@ -103,16 +108,16 @@ pip install torch torchvision torchaudio
 pip install pandas numpy matplotlib seaborn
 pip install scikit-learn imbalanced-learn
 pip install jupyter notebook
+```
 
 #### Lancement
-```
 ```bash
 jupyter notebook implementation.ipynb
 ```
 ## 📊 Visualisations Générées
 
 1. Distribution des classes après ADASYN
-https://images/adasyn_distribution.png
+images/adasyn_distribution.png
 Équilibrage des classes pour chaque dataset
 
 2. Matrices de confusion
